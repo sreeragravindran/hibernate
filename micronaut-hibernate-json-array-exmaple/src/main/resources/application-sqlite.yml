@@ -1,0 +1,21 @@
+datasources:
+  default:
+    url: 'jdbc:sqlite:/tmp/test.db'
+    driverClassName: 'org.sqlite.JDBC'
+
+jpa:
+  default:
+    packages-to-scan:
+      - 'hibernate_json_exmaple.entities'
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLiteDialect
+        hbm2ddl:
+          auto: none
+        show_sql: true
+
+flyway:
+  datasources:
+    default:
+      enabled: true
+      locations: classpath:databaseMigrations/sqlite
